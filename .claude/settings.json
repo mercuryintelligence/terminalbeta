@@ -1,138 +1,161 @@
 {
   "hooks": {
-    "PostToolUse": [
+    "SessionStart": [
       {
+        "script": "beads-compact-restore.mjs",
         "hooks": [
           {
-            "command": "node \"/home/dawid/projects/mercury/terminalbeta/.xtrm/hooks/beads-claim-sync.mjs\"",
-            "timeout": 5000,
-            "type": "command"
-          }
-        ],
-        "matcher": "Bash|execute_shell_command|bash"
-      },
-      {
-        "hooks": [
-          {
-            "command": "node \"/home/dawid/projects/mercury/terminalbeta/.xtrm/hooks/quality-check.cjs\"",
-            "timeout": 30000,
-            "type": "command"
+            "type": "command",
+            "command": "node \"/home/dawid/projects/mercury/terminalbeta/.xtrm/hooks/using-xtrm-reminder.mjs\""
           },
           {
-            "command": "python3 \"/home/dawid/projects/mercury/terminalbeta/.xtrm/hooks/quality-check.py\"",
-            "timeout": 30000,
-            "type": "command"
-          }
-        ],
-        "matcher": "Edit|Write|MultiEdit|NotebookEdit|mcp__serena__rename_symbol|mcp__serena__replace_symbol_body|mcp__serena__insert_after_symbol|mcp__serena__insert_before_symbol"
-      },
-      {
-        "hooks": [
+            "type": "command",
+            "command": "node \"/home/dawid/projects/mercury/terminalbeta/.xtrm/hooks/beads-compact-restore.mjs\"",
+            "timeout": 5000
+          },
           {
-            "command": "node \"/home/dawid/projects/mercury/terminalbeta/.xtrm/hooks/gitnexus/gitnexus-hook.cjs\"",
-            "timeout": 10000,
-            "type": "command"
-          }
-        ],
-        "matcher": "Bash|Grep|Read|Glob|mcp__serena__find_symbol|mcp__serena__get_symbols_overview|mcp__serena__search_for_pattern|mcp__serena__find_referencing_symbols|mcp__serena__replace_symbol_body|mcp__serena__insert_after_symbol|mcp__serena__insert_before_symbol|mcp__serena__rename_symbol"
-      },
-      {
-        "hooks": [
+            "type": "command",
+            "command": "node \"/home/dawid/projects/mercury/terminalbeta/.xtrm/hooks/quality-check-env.mjs\"",
+            "timeout": 5000
+          },
           {
-            "command": "node \"/home/dawid/projects/mercury/terminalbeta/.xtrm/hooks/xtrm-tool-logger.mjs\"",
-            "timeout": 3000,
-            "type": "command"
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/skills/service-skills/scripts/cataloger.py\""
+          },
+          {
+            "type": "command",
+            "command": "node \"/home/dawid/projects/mercury/terminalbeta/.xtrm/hooks/xtrm-session-logger.mjs\"",
+            "timeout": 3000
           }
         ]
       }
     ],
-    "PreCompact": [
-      {
-        "hooks": [
-          {
-            "command": "node \"/home/dawid/projects/mercury/terminalbeta/.xtrm/hooks/beads-compact-save.mjs\"",
-            "timeout": 5000,
-            "type": "command"
-          }
-        ],
-        "script": "beads-compact-save.mjs"
-      }
-    ],
     "PreToolUse": [
       {
+        "matcher": "Edit|Write|MultiEdit|NotebookEdit|mcp__serena__rename_symbol|mcp__serena__replace_symbol_body|mcp__serena__insert_after_symbol|mcp__serena__insert_before_symbol",
         "hooks": [
           {
+            "type": "command",
             "command": "node \"/home/dawid/projects/mercury/terminalbeta/.xtrm/hooks/worktree-boundary.mjs\"",
-            "timeout": 2000,
-            "type": "command"
+            "timeout": 2000
           },
           {
+            "type": "command",
             "command": "node \"/home/dawid/projects/mercury/terminalbeta/.xtrm/hooks/beads-edit-gate.mjs\"",
-            "timeout": 5000,
-            "type": "command"
+            "timeout": 5000
           }
-        ],
-        "matcher": "Edit|Write|MultiEdit|NotebookEdit|mcp__serena__rename_symbol|mcp__serena__replace_symbol_body|mcp__serena__insert_after_symbol|mcp__serena__insert_before_symbol"
+        ]
       },
       {
+        "matcher": "Agent",
         "hooks": [
           {
+            "type": "command",
             "command": "node \"/home/dawid/projects/mercury/terminalbeta/.xtrm/hooks/specialists-agent-guard.mjs\"",
-            "timeout": 2000,
-            "type": "command"
+            "timeout": 2000
           }
-        ],
-        "matcher": "Agent"
+        ]
       },
       {
+        "matcher": "Bash",
         "hooks": [
           {
+            "type": "command",
             "command": "node \"/home/dawid/projects/mercury/terminalbeta/.xtrm/hooks/beads-commit-gate.mjs\"",
-            "timeout": 5000,
-            "type": "command"
+            "timeout": 5000
           }
-        ],
-        "matcher": "Bash"
+        ]
+      },
+      {
+        "matcher": "Read|Write|Edit|Glob|Grep|Bash|mcp__serena__rename_symbol|mcp__serena__replace_symbol_body|mcp__serena__insert_after_symbol|mcp__serena__insert_before_symbol",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/skills/service-skills/scripts/skill_activator.py\""
+          }
+        ]
       }
     ],
-    "SessionStart": [
+    "PostToolUse": [
+      {
+        "matcher": "Bash|execute_shell_command|bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"/home/dawid/projects/mercury/terminalbeta/.xtrm/hooks/beads-claim-sync.mjs\"",
+            "timeout": 5000
+          }
+        ]
+      },
+      {
+        "matcher": "Edit|Write|MultiEdit|NotebookEdit|mcp__serena__rename_symbol|mcp__serena__replace_symbol_body|mcp__serena__insert_after_symbol|mcp__serena__insert_before_symbol",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"/home/dawid/projects/mercury/terminalbeta/.xtrm/hooks/quality-check.cjs\"",
+            "timeout": 30000
+          },
+          {
+            "type": "command",
+            "command": "python3 \"/home/dawid/projects/mercury/terminalbeta/.xtrm/hooks/quality-check.py\"",
+            "timeout": 30000
+          }
+        ]
+      },
+      {
+        "matcher": "Bash|Grep|Read|Glob|mcp__serena__find_symbol|mcp__serena__get_symbols_overview|mcp__serena__search_for_pattern|mcp__serena__find_referencing_symbols|mcp__serena__replace_symbol_body|mcp__serena__insert_after_symbol|mcp__serena__insert_before_symbol|mcp__serena__rename_symbol",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"/home/dawid/projects/mercury/terminalbeta/.xtrm/hooks/gitnexus/gitnexus-hook.cjs\"",
+            "timeout": 10000
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit|mcp__serena__rename_symbol|mcp__serena__replace_symbol_body|mcp__serena__insert_after_symbol|mcp__serena__insert_before_symbol",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/skills/service-skills/scripts/drift_detector.py\" check-hook",
+            "timeout": 10000
+          }
+        ]
+      },
       {
         "hooks": [
           {
-            "command": "node \"/home/dawid/projects/mercury/terminalbeta/.xtrm/hooks/using-xtrm-reminder.mjs\"",
-            "type": "command"
-          },
-          {
-            "command": "node \"/home/dawid/projects/mercury/terminalbeta/.xtrm/hooks/beads-compact-restore.mjs\"",
-            "timeout": 5000,
-            "type": "command"
-          },
-          {
-            "command": "node \"/home/dawid/projects/mercury/terminalbeta/.xtrm/hooks/quality-check-env.mjs\"",
-            "timeout": 5000,
-            "type": "command"
-          },
-          {
-            "command": "node \"/home/dawid/projects/mercury/terminalbeta/.xtrm/hooks/xtrm-session-logger.mjs\"",
-            "timeout": 3000,
-            "type": "command"
+            "type": "command",
+            "command": "node \"/home/dawid/projects/mercury/terminalbeta/.xtrm/hooks/xtrm-tool-logger.mjs\"",
+            "timeout": 3000
           }
-        ],
-        "script": "beads-compact-restore.mjs"
+        ]
       }
     ],
     "Stop": [
       {
         "hooks": [
           {
+            "type": "command",
             "command": "node \"/home/dawid/projects/mercury/terminalbeta/.xtrm/hooks/beads-stop-gate.mjs\"",
-            "timeout": 5000,
-            "type": "command"
+            "timeout": 5000
           },
           {
+            "type": "command",
             "command": "node \"/home/dawid/projects/mercury/terminalbeta/.xtrm/hooks/beads-memory-gate.mjs\"",
-            "timeout": 8000,
-            "type": "command"
+            "timeout": 8000
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "script": "beads-compact-save.mjs",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"/home/dawid/projects/mercury/terminalbeta/.xtrm/hooks/beads-compact-save.mjs\"",
+            "timeout": 5000
           }
         ]
       }
