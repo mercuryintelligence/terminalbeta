@@ -1,33 +1,52 @@
 name: OSV Scanner
 
-# Vulnerability scanner from Google's OSV.dev — replaces Dependency Review on
-# user-private repos where Dependency Review (a GHAS feature) is unavailable.
-# Scans manifests + lockfiles against the OSV.dev database.
-
 on:
   push:
-    branches: [main, master]    # scan immediately after every merge
+    branches: [main]
   pull_request:
-    branches: [main, master]
+    branches: [main]
   schedule:
-    - cron: "0 6 * * 1"  # Monday 06:00 UTC weekly
+    - cron: "47 6 * * 1"
 
 permissions:
   contents: read
+
+concurrency:
+  group: terminalbeta-osv-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   scan:
     name: OSV scan
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Run OSV-Scanner
-        uses: google/osv-scanner-action/osv-scanner-action@v2.3.8
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          # Note: --skip-git was removed in v2.3+. Recursive scan walks the
-          # working tree and respects .gitignore by default.
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Determine dependency impact
+        id: scope
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ "$GITHUB_EVENT_NAME" != pull_request ]; then
+            echo 'run=true' >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git diff --no-renames --name-only --diff-filter=ACMRD \
+            '${{ github.event.pull_request.base.sha }}...${{ github.event.pull_request.head.sha }}' > changed.txt
+          if grep -Eq '^(package\.json|package-lock\.json|ext/mercury-platform/package\.json|ext/mercury-platform/package-lock\.json)$' changed.txt; then
+            echo 'run=true' >> "$GITHUB_OUTPUT"
+          else
+            echo 'run=false' >> "$GITHUB_OUTPUT"
+            echo 'No dependency-bearing file changed; historical dependency debt remains covered by default-branch/weekly scans.'
+          fi
+      - name: Run OSV-Scanner
+        if: steps.scope.outputs.run == 'true'
+        uses: google/osv-scanner-action/osv-scanner-action@9a498708959aeaef5ef730655706c5a1df1edbc2 # v2.3.8
+        with:
           scan-args: |-
             --recursive
             ./
