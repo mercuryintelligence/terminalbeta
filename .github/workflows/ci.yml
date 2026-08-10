@@ -1,0 +1,114 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: terminalbeta-ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  scope:
+    name: Scope
+    runs-on: ubuntu-latest
+    outputs:
+      run_package: ${{ steps.classify.outputs.run_package }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Classify impact
+        id: classify
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ "$GITHUB_EVENT_NAME" = pull_request ]; then
+            git diff --no-renames --name-only --diff-filter=ACMRD \
+              '${{ github.event.pull_request.base.sha }}...${{ github.event.pull_request.head.sha }}' > changed.txt
+          else
+            git ls-files > changed.txt
+          fi
+          run_package=false
+          while IFS= read -r path; do
+            case "$path" in
+              *.md|docs/*|.beads/*|.specialists/*|.xtrm/*|.claude/skills/*) ;;
+              index.js|servers.json|package.json|package-lock.json|ext/*|.github/workflows/*) run_package=true ;;
+              *) run_package=true ;; # unknown fails safe
+            esac
+          done < changed.txt
+          echo "run_package=$run_package" >> "$GITHUB_OUTPUT"
+          cat changed.txt
+
+  package:
+    name: Installer & extension contract
+    needs: scope
+    if: needs.scope.outputs.run_package == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Set up Node
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '22'
+          cache: npm
+          package-manager-cache: false
+      - name: Install root package
+        run: npm ci
+      - name: Syntax-check installer and proxy
+        run: |
+          node --check index.js
+          node --check ext/mercury-platform/server/index.mjs
+      - name: Validate JSON contracts
+        run: |
+          node - <<'NODE'
+          const fs = require('fs');
+          const servers = JSON.parse(fs.readFileSync('servers.json', 'utf8'));
+          const root = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+          const manifest = JSON.parse(fs.readFileSync('ext/mercury-platform/manifest.json', 'utf8'));
+          if (!Array.isArray(servers) || servers.length === 0) throw new Error('servers.json must be a non-empty array');
+          const names = new Set();
+          for (const server of servers) {
+            for (const key of ['name','label','description','url','transport']) if (!server[key]) throw new Error(`missing ${key}`);
+            if (names.has(server.name)) throw new Error(`duplicate server ${server.name}`);
+            names.add(server.name);
+            const url = new URL(server.url);
+            if (url.protocol !== 'https:') throw new Error(`non-HTTPS server URL: ${server.url}`);
+            if (server.transport !== 'http') throw new Error(`unexpected transport for ${server.name}`);
+          }
+          if (!root.bin?.['mercury-install-mcp']) throw new Error('package bin contract missing');
+          if (!manifest || typeof manifest !== 'object') throw new Error('extension manifest invalid');
+          console.log(`validated ${servers.length} server entries`);
+          NODE
+      - name: Verify packaged artifacts are present
+        run: |
+          test -s ext/mercury-platform/mercury-platform.mcpb
+          npm pack --dry-run >/dev/null
+
+  gate:
+    name: ci/gate
+    if: always()
+    needs: [scope, package]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Enforce selected jobs
+        env:
+          SCOPE_RESULT: ${{ needs.scope.result }}
+          PACKAGE_RESULT: ${{ needs.package.result }}
+          RUN_PACKAGE: ${{ needs.scope.outputs.run_package }}
+        run: |
+          set -euo pipefail
+          [ "$SCOPE_RESULT" = success ]
+          if [ "$RUN_PACKAGE" = true ]; then [ "$PACKAGE_RESULT" = success ]; else case "$PACKAGE_RESULT" in skipped|success) ;; *) exit 1 ;; esac; fi
