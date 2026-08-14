@@ -20,7 +20,7 @@
           },
           {
             "type": "command",
-            "command": "sh -c 'p=\"$HOME/.xtrm/skills/default/service-skills/scripts/cataloger.py\"; [ -f \"$p\" ] && python3 \"$p\"; exit 0'"
+            "command": "sh -c 'p=\"$CLAUDE_PROJECT_DIR/.xtrm/skills/default/service-knowledge/scripts/cataloger.py\"; [ -f \"$p\" ] || exit 0; exec python3 \"$p\"'"
           },
           {
             "type": "command",
@@ -67,13 +67,13 @@
         ]
       },
       {
-        "matcher": "Read|Write|Edit|Glob|Grep|Bash|mcp__serena__rename_symbol|mcp__serena__replace_symbol_body|mcp__serena__insert_after_symbol|mcp__serena__insert_before_symbol",
         "hooks": [
           {
             "type": "command",
-            "command": "sh -c 'p=\"$HOME/.xtrm/skills/default/service-skills/scripts/skill_activator.py\"; [ -f \"$p\" ] && python3 \"$p\"; exit 0'"
+            "command": "sh -c 'p=\"$CLAUDE_PROJECT_DIR/.xtrm/skills/default/service-knowledge/scripts/skill_activator.py\"; [ -f \"$p\" ] || exit 0; exec python3 \"$p\"'"
           }
-        ]
+        ],
+        "matcher": "Read|Write|Edit|Glob|Grep|Bash|mcp__serena__rename_symbol|mcp__serena__replace_symbol_body|mcp__serena__insert_after_symbol|mcp__serena__insert_before_symbol"
       }
     ],
     "PostToolUse": [
@@ -113,14 +113,14 @@
         ]
       },
       {
-        "matcher": "Write|Edit|mcp__serena__rename_symbol|mcp__serena__replace_symbol_body|mcp__serena__insert_after_symbol|mcp__serena__insert_before_symbol",
         "hooks": [
           {
             "type": "command",
-            "command": "sh -c 'p=\"$HOME/.xtrm/skills/default/service-skills/scripts/drift_detector.py\"; [ -f \"$p\" ] && python3 \"$p\" check-hook; exit 0'",
+            "command": "sh -c 'p=\"$CLAUDE_PROJECT_DIR/.xtrm/skills/default/service-knowledge/scripts/drift_detector.py\"; [ -f \"$p\" ] || exit 0; exec python3 \"$p\" check-hook'",
             "timeout": 10000
           }
-        ]
+        ],
+        "matcher": "Write|Edit|mcp__serena__rename_symbol|mcp__serena__replace_symbol_body|mcp__serena__insert_after_symbol|mcp__serena__insert_before_symbol"
       },
       {
         "hooks": [

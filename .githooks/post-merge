@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+# [jaggers] drift-sweep
+if command -v python3 &>/dev/null && [ -f "/home/dawid/projects/mercury/terminalbeta/.xtrm/worktrees/terminalbeta-xt-claude-sk-reconcile-terminalbeta/.xtrm/skills/default/service-knowledge/install/git-hooks/post_merge_drift_sweep.py" ]; then
+    python3 "/home/dawid/projects/mercury/terminalbeta/.xtrm/worktrees/terminalbeta-xt-claude-sk-reconcile-terminalbeta/.xtrm/skills/default/service-knowledge/install/git-hooks/post_merge_drift_sweep.py" || true
+fi

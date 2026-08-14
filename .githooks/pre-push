@@ -37,3 +37,8 @@ if command -v pre-commit &>/dev/null && [ -f .pre-commit-config.yaml ]; then
 fi
 
 exit 0
+
+# [jaggers] skill-staleness
+if command -v python3 &>/dev/null && [ -f "/home/dawid/projects/mercury/terminalbeta/.xtrm/worktrees/terminalbeta-xt-claude-sk-reconcile-terminalbeta/.xtrm/skills/default/service-knowledge/install/git-hooks/skill_staleness.py" ]; then
+    python3 "/home/dawid/projects/mercury/terminalbeta/.xtrm/worktrees/terminalbeta-xt-claude-sk-reconcile-terminalbeta/.xtrm/skills/default/service-knowledge/install/git-hooks/skill_staleness.py" || true
+fi
