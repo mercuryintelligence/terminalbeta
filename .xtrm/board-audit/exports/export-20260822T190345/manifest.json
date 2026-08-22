@@ -1,11 +1,11 @@
 {
-  "bd_version": "bd version 1.2.1 (634cbbc4b: HEAD@634cbbc4bc58)",
+  "bd_version": "bd version 1.2.2 (6c124203e: HEAD@6c124203e771)",
   "diagnostics": {
     "derived_dotted_parent_links": [],
     "unknown_parent_refs": [],
     "unpackaged_selected_ids": []
   },
-  "generated_at": "2026-08-22T02:03:37.516825+00:00",
+  "generated_at": "2026-08-22T17:03:45.960304+00:00",
   "packages": [
     {
       "content_sha256": "7fbc80fd78fcf90d000ae1d390a89f29b8e2c05be0158489155b1da16cd3587a",
@@ -308,6 +308,6 @@
     "command": "bd export --all",
     "raw_file": "raw-beads.jsonl",
     "raw_record_count": 34,
-    "raw_sha256": "3832e508ea2e642809ee6c24706f5fdeaf25b0995c29d21e32ced2e4d1500494"
+    "raw_sha256": "faec96dc964afe8cd491132027921a0d384a3ef523c2e2b2799bee4393ea055d"
   }
 }
