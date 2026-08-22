@@ -1,0 +1,313 @@
+{
+  "bd_version": "bd version 1.2.1 (634cbbc4b: HEAD@634cbbc4bc58)",
+  "diagnostics": {
+    "derived_dotted_parent_links": [],
+    "unknown_parent_refs": [],
+    "unpackaged_selected_ids": []
+  },
+  "generated_at": "2026-08-22T02:03:37.516825+00:00",
+  "packages": [
+    {
+      "content_sha256": "7fbc80fd78fcf90d000ae1d390a89f29b8e2c05be0158489155b1da16cd3587a",
+      "context_only_issue_count": 0,
+      "file": "work-packages/terminalbeta-05r__resolve-osv-scanner-findings-in-ext-mercury-platform-dependencies.json",
+      "issue_count": 1,
+      "root_id": "terminalbeta-05r",
+      "selected_issue_count": 1,
+      "title": "Resolve OSV scanner findings in ext/mercury-platform dependencies"
+    },
+    {
+      "content_sha256": "28f09b632f4fd9b79c774b84b3bc5d02e53a7d20abde1d2a5fa7578780115104",
+      "context_only_issue_count": 0,
+      "file": "work-packages/terminalbeta-0e2__ack-git-cliff-rollout-tune-scopes-reconcile-changelog.json",
+      "issue_count": 1,
+      "root_id": "terminalbeta-0e2",
+      "selected_issue_count": 1,
+      "title": "Ack git-cliff rollout: tune scopes + reconcile CHANGELOG"
+    },
+    {
+      "content_sha256": "5b9ae36f7c0d82952440774da75c7c07ea8ae453baa389b909f3f3cbd305c120",
+      "context_only_issue_count": 0,
+      "file": "work-packages/terminalbeta-0rn__reference-rates-missing-2-business-days-thu-fri-ingestion-lag.json",
+      "issue_count": 1,
+      "root_id": "terminalbeta-0rn",
+      "selected_issue_count": 1,
+      "title": "reference_rates missing 2 business days — Thu/Fri ingestion lag"
+    },
+    {
+      "content_sha256": "a8ae9800ce35ed4485a60366374a6b3cc5b39084a3130c47a3c78459767e87ba",
+      "context_only_issue_count": 0,
+      "file": "work-packages/terminalbeta-2ou__get-options-data-all-4-categories-returning-7-week-stale-reports.json",
+      "issue_count": 1,
+      "root_id": "terminalbeta-2ou",
+      "selected_issue_count": 1,
+      "title": "get_options_data all 4 categories returning 7-week stale reports"
+    },
+    {
+      "content_sha256": "933c3dfe5e239c514c24badb4a776c7f248edc329d7cebc928a98445ad112d66",
+      "context_only_issue_count": 0,
+      "file": "work-packages/terminalbeta-3mk__no-rate-limit-headers-or-documentation-parallel-calls-trigger-silent-429s.json",
+      "issue_count": 1,
+      "root_id": "terminalbeta-3mk",
+      "selected_issue_count": 1,
+      "title": "No rate limit headers or documentation — parallel calls trigger silent 429s"
+    },
+    {
+      "content_sha256": "35b30c05715822f0662088e9d86c6accd29f49a9496888de29362041cc39f60a",
+      "context_only_issue_count": 0,
+      "file": "work-packages/terminalbeta-4ny__session-not-found-after-container-restart-pubfinance-mcp.json",
+      "issue_count": 1,
+      "root_id": "terminalbeta-4ny",
+      "selected_issue_count": 1,
+      "title": "Session not found after container restart — pubfinance MCP"
+    },
+    {
+      "content_sha256": "b0c215bc9f8f6392e4a4559267cfb02409f754e557d877e3ad39588a7622e992",
+      "context_only_issue_count": 0,
+      "file": "work-packages/terminalbeta-644__decide-whether-terminalbeta-still-needs-service-registry-json.json",
+      "issue_count": 2,
+      "root_id": "terminalbeta-644",
+      "selected_issue_count": 2,
+      "title": "Decide whether terminalbeta still needs service-registry.json"
+    },
+    {
+      "content_sha256": "bdd1dba6fd971cf38b78187ba38c3e25f758964c14e18f9864b92cae4c0200e6",
+      "context_only_issue_count": 0,
+      "file": "work-packages/terminalbeta-6p8__p0-bootstrap-service-knowledge-v0-7-0-jira-issue-51.json",
+      "issue_count": 1,
+      "root_id": "terminalbeta-6p8",
+      "selected_issue_count": 1,
+      "title": "P0: bootstrap service-knowledge (v0.7.0) — jira ISSUE-51"
+    },
+    {
+      "content_sha256": "093ec8304c77ab1eca849b5c92938c9db422f669c1048958b173bcf10870bf51",
+      "context_only_issue_count": 0,
+      "file": "work-packages/terminalbeta-8ws__get-article-bullets-identical-to-list-articles-stubs-differentiate-or-remove.json",
+      "issue_count": 1,
+      "root_id": "terminalbeta-8ws",
+      "selected_issue_count": 1,
+      "title": "get_article_bullets identical to list_articles stubs — differentiate or remove"
+    },
+    {
+      "content_sha256": "ca09beec5c98942fb0fe25f2374974e98590f346798da6eb1e164e25846ef0c0",
+      "context_only_issue_count": 0,
+      "file": "work-packages/terminalbeta-90p__restructure-mercury-user-guides-into-website-ready-documentation-ia.json",
+      "issue_count": 1,
+      "root_id": "terminalbeta-90p",
+      "selected_issue_count": 1,
+      "title": "Restructure Mercury user guides into website-ready documentation IA"
+    },
+    {
+      "content_sha256": "c7f475fd01b0d23c8c8610fce3f529d7dc2ff162f0e736bc0efcf460bd2f0635",
+      "context_only_issue_count": 0,
+      "file": "work-packages/terminalbeta-9kr__draft-mercury-mcp-user-guides-in-obsidian-vault.json",
+      "issue_count": 1,
+      "root_id": "terminalbeta-9kr",
+      "selected_issue_count": 1,
+      "title": "Draft Mercury MCP user guides in Obsidian vault"
+    },
+    {
+      "content_sha256": "00a37e7fc98a8f55378843c79ef17922efdd743f3c0365190a3578346fff3161",
+      "context_only_issue_count": 0,
+      "file": "work-packages/terminalbeta-9so__reconcile-pi-update-git-state.json",
+      "issue_count": 1,
+      "root_id": "terminalbeta-9so",
+      "selected_issue_count": 1,
+      "title": "Reconcile pi update git state"
+    },
+    {
+      "content_sha256": "c29fb5fb1a4309b6893c972b70240074a92764229452985d741894b97892bd3b",
+      "context_only_issue_count": 0,
+      "file": "work-packages/terminalbeta-btn__get-squawk-context-history-mode-only-returns-same-day-synthesis-runs.json",
+      "issue_count": 1,
+      "root_id": "terminalbeta-btn",
+      "selected_issue_count": 1,
+      "title": "get_squawk_context history mode only returns same-day synthesis runs"
+    },
+    {
+      "content_sha256": "7a2abc4b1f1ea024f58f215d0f14fdc017dc3d51f0373d20c3ad291582d1441d",
+      "context_only_issue_count": 0,
+      "file": "work-packages/terminalbeta-d4x__data-source-status-table-orphaned-pipeline-no-longer-writes-to-it.json",
+      "issue_count": 1,
+      "root_id": "terminalbeta-d4x",
+      "selected_issue_count": 1,
+      "title": "data_source_status table orphaned — pipeline no longer writes to it"
+    },
+    {
+      "content_sha256": "efabdea9301a5825a0205dbfdbcf3ffd322d3e8c608a0ce96d9d4d4b385db5de",
+      "context_only_issue_count": 0,
+      "file": "work-packages/terminalbeta-egl__tga-balance-and-vix-credit-spreads-null-in-fed-liquidity.json",
+      "issue_count": 1,
+      "root_id": "terminalbeta-egl",
+      "selected_issue_count": 1,
+      "title": "TGA_Balance and VIX/credit spreads null in fed_liquidity"
+    },
+    {
+      "content_sha256": "98b81cad1e3714da700cebcce38c690bc2681ea4a17ab3edf40c73fe5be7a640",
+      "context_only_issue_count": 0,
+      "file": "work-packages/terminalbeta-hof__get-economic-events-returns-0-events-for-all-time-ranges-calendar-db-empty.json",
+      "issue_count": 1,
+      "root_id": "terminalbeta-hof",
+      "selected_issue_count": 1,
+      "title": "get_economic_events returns 0 events for all time ranges — calendar DB empty"
+    },
+    {
+      "content_sha256": "d39a41486095e89567aff10529f91787d49c5783b4e3790831d8ad2b1e05acf8",
+      "context_only_issue_count": 0,
+      "file": "work-packages/terminalbeta-kbb__generate-and-atomically-publish-protected-mcp-docs-and-releases.json",
+      "issue_count": 2,
+      "root_id": "terminalbeta-kbb",
+      "selected_issue_count": 2,
+      "title": "Generate and atomically publish protected MCP docs and releases"
+    },
+    {
+      "content_sha256": "e98af889ccf7738764bceec130f275440cbaeb488da1c1e27806c09afed85f4c",
+      "context_only_issue_count": 0,
+      "file": "work-packages/terminalbeta-lkr__session-not-found-after-container-restart-market-data-mcp.json",
+      "issue_count": 1,
+      "root_id": "terminalbeta-lkr",
+      "selected_issue_count": 1,
+      "title": "Session not found after container restart — market-data MCP"
+    },
+    {
+      "content_sha256": "180340ddab0545f50080ad1b2bf5f06ca9dc9d75690f640c69730b9477702297",
+      "context_only_issue_count": 0,
+      "file": "work-packages/terminalbeta-lm5__get-lci-history-rows-missing-inline-regime-label.json",
+      "issue_count": 1,
+      "root_id": "terminalbeta-lm5",
+      "selected_issue_count": 1,
+      "title": "get_lci history rows missing inline regime label"
+    },
+    {
+      "content_sha256": "0d3573fe31c2f47890b34762f7352206e5674148ae646c0a4d125ddb10df1835",
+      "context_only_issue_count": 0,
+      "file": "work-packages/terminalbeta-lnk__get-correlation-matrix-returns-only-5-hardcoded-pairs-instead-of-full-universe.json",
+      "issue_count": 1,
+      "root_id": "terminalbeta-lnk",
+      "selected_issue_count": 1,
+      "title": "get_correlation_matrix returns only 5 hardcoded pairs instead of full universe"
+    },
+    {
+      "content_sha256": "3c5c8fc61983129d5c9c14e8b73d86540122e60173b4eb2dd5cf5c6a0807367b",
+      "context_only_issue_count": 0,
+      "file": "work-packages/terminalbeta-nzd__tool-health-check-missing-on-market-data-pubfinance-and-econ-data.json",
+      "issue_count": 1,
+      "root_id": "terminalbeta-nzd",
+      "selected_issue_count": 1,
+      "title": "tool_health_check missing on market-data, pubfinance, and econ-data"
+    },
+    {
+      "content_sha256": "00e7cd9c20a135ea6759f59f432adcd7d371128835a38758e44cc80032892279",
+      "context_only_issue_count": 0,
+      "file": "work-packages/terminalbeta-opw__mass-country-mis-tagging-non-eu-events-incorrectly-labelled-european-union.json",
+      "issue_count": 1,
+      "root_id": "terminalbeta-opw",
+      "selected_issue_count": 1,
+      "title": "Mass country mis-tagging — non-EU events incorrectly labelled 'european union'"
+    },
+    {
+      "content_sha256": "c033e7e22b30d6addcf770f16955d5dbc606063c330d20f094ce5950ff4b97ab",
+      "context_only_issue_count": 0,
+      "file": "work-packages/terminalbeta-osz__get-research-stale-all-docs-from-oct-2025-no-recent-ingestion.json",
+      "issue_count": 1,
+      "root_id": "terminalbeta-osz",
+      "selected_issue_count": 1,
+      "title": "get_research stale — all docs from Oct 2025, no recent ingestion"
+    },
+    {
+      "content_sha256": "ab420be0a2ec1fec7ddb9492335576f46d39a63b32616f0c95625a16e4314ebb",
+      "context_only_issue_count": 0,
+      "file": "work-packages/terminalbeta-p7c__ret-5d-pct-empty-in-all-bundle-instrument-responses.json",
+      "issue_count": 1,
+      "root_id": "terminalbeta-p7c",
+      "selected_issue_count": 1,
+      "title": "ret_5d_pct empty in all bundle instrument responses"
+    },
+    {
+      "content_sha256": "9b5817f41e351aa40b8e2e59366af922e47508663daf03079ce3c61ef1a09a32",
+      "context_only_issue_count": 0,
+      "file": "work-packages/terminalbeta-ppr__get-economic-events-country-filter-returns-0-for-united-states-despite-events-present.json",
+      "issue_count": 1,
+      "root_id": "terminalbeta-ppr",
+      "selected_issue_count": 1,
+      "title": "get_economic_events country filter returns 0 for 'united states' despite events present"
+    },
+    {
+      "content_sha256": "ffecf07bb12f0ff95c272b6a3967e30355ee16d16913c23ac7c0dd24015696d9",
+      "context_only_issue_count": 0,
+      "file": "work-packages/terminalbeta-qhv__get-candles-no-symbol-discovery-callers-must-guess-valid-symbols.json",
+      "issue_count": 1,
+      "root_id": "terminalbeta-qhv",
+      "selected_issue_count": 1,
+      "title": "get_candles no symbol discovery — callers must guess valid symbols"
+    },
+    {
+      "content_sha256": "f87f5dbb240e944b5d2f1e7454841d8be0fdf72462ab1dff4f1e1fded563d72b",
+      "context_only_issue_count": 0,
+      "file": "work-packages/terminalbeta-r2p__get-economic-history-tool-missing-59-series-in-catalog-with-no-retrieval-endpoint.json",
+      "issue_count": 1,
+      "root_id": "terminalbeta-r2p",
+      "selected_issue_count": 1,
+      "title": "get_economic_history tool missing — 59 series in catalog with no retrieval endpoint"
+    },
+    {
+      "content_sha256": "a121eb36420335faab9a2518823643456db049abecc5671685a66b1477670ef5",
+      "context_only_issue_count": 0,
+      "file": "work-packages/terminalbeta-s8r__aggregate-articles-missing-tags-filter-add-tags-and-tag-match-params.json",
+      "issue_count": 1,
+      "root_id": "terminalbeta-s8r",
+      "selected_issue_count": 1,
+      "title": "aggregate_articles missing tags filter — add tags and tag_match params"
+    },
+    {
+      "content_sha256": "a507574361c88bd5cc989d553921bd35b93c8b071e1989ffb8c8c02df28244e8",
+      "context_only_issue_count": 0,
+      "file": "work-packages/terminalbeta-ued__get-options-data-does-not-support-toon-format-inconsistent-with-all-other-tools.json",
+      "issue_count": 1,
+      "root_id": "terminalbeta-ued",
+      "selected_issue_count": 1,
+      "title": "get_options_data does not support toon format — inconsistent with all other tools"
+    },
+    {
+      "content_sha256": "090c7117677d230be703513d2c797e57b37feac4b6b0425dbb1572761ca0b51a",
+      "context_only_issue_count": 0,
+      "file": "work-packages/terminalbeta-vsx__relevance-score-null-on-all-recent-articles-ids-7170.json",
+      "issue_count": 1,
+      "root_id": "terminalbeta-vsx",
+      "selected_issue_count": 1,
+      "title": "relevance_score null on all recent articles (IDs 7170+)"
+    },
+    {
+      "content_sha256": "72c9969ce2f8b911731988270c7f814730b0a1a75feccbb499bba182428d27aa",
+      "context_only_issue_count": 0,
+      "file": "work-packages/terminalbeta-w57__topic-name-view-names-undocumented-in-get-squawk-context.json",
+      "issue_count": 1,
+      "root_id": "terminalbeta-w57",
+      "selected_issue_count": 1,
+      "title": "topic:<name> view names undocumented in get_squawk_context"
+    },
+    {
+      "content_sha256": "87f0347769268c0721a2fd0a0dbe6f8808029d75c6e0f2306de548d9c592e939",
+      "context_only_issue_count": 0,
+      "file": "work-packages/terminalbeta-x3v__get-correlation-matrix-missing-regime-unstable-boolean-flag.json",
+      "issue_count": 1,
+      "root_id": "terminalbeta-x3v",
+      "selected_issue_count": 1,
+      "title": "get_correlation_matrix missing regime_unstable boolean flag"
+    }
+  ],
+  "repository": "mercuryintelligence/terminalbeta",
+  "schema_version": "xtrm.board-audit.snapshot-manifest.v1",
+  "selection": {
+    "context_only_record_count": 0,
+    "requested_id": null,
+    "scope": "all",
+    "selected_record_count": 34
+  },
+  "source": {
+    "command": "bd export --all",
+    "raw_file": "raw-beads.jsonl",
+    "raw_record_count": 34,
+    "raw_sha256": "3832e508ea2e642809ee6c24706f5fdeaf25b0995c29d21e32ced2e4d1500494"
+  }
+}

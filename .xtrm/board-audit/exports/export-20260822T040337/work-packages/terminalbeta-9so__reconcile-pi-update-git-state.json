@@ -1,0 +1,43 @@
+{
+  "content_sha256": "00a37e7fc98a8f55378843c79ef17922efdd743f3c0365190a3578346fff3161",
+  "diagnostics": {
+    "dangling_relations": [],
+    "derived_dotted_parent_links": [],
+    "multiple_parent_nodes": []
+  },
+  "external_relations": [],
+  "hierarchy": {
+    "children": [],
+    "id": "terminalbeta-9so"
+  },
+  "issues": {
+    "terminalbeta-9so": {
+      "selection_state": "selected",
+      "source": {
+        "_type": "issue",
+        "assignee": "dawid",
+        "close_reason": "Done: reconciled intentional pi/xtrm git state; validated JSON, staged symlink/settings/MCP updates, ignored local backup artifacts, and verified bd server health.",
+        "closed_at": "2026-05-21T14:58:48Z",
+        "comment_count": 0,
+        "created_at": "2026-05-21T14:56:47Z",
+        "created_by": "dawid",
+        "dependency_count": 0,
+        "dependent_count": 0,
+        "description": "Capture intentional pi/xtrm configuration changes from pi update, clean ignored backup artifacts, validate bd/GitNexus scope, and commit/push on a dedicated branch.",
+        "id": "terminalbeta-9so",
+        "issue_type": "chore",
+        "priority": 2,
+        "started_at": "2026-05-21T14:56:50Z",
+        "status": "closed",
+        "title": "Reconcile pi update git state",
+        "updated_at": "2026-05-21T14:58:48Z"
+      }
+    }
+  },
+  "relations": [],
+  "repository": "mercuryintelligence/terminalbeta",
+  "root_id": "terminalbeta-9so",
+  "root_title": "Reconcile pi update git state",
+  "schema_version": "xtrm.board-audit.work-package.v1",
+  "scope": "all"
+}

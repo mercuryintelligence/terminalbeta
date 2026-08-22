@@ -1,0 +1,47 @@
+{
+  "content_sha256": "efabdea9301a5825a0205dbfdbcf3ffd322d3e8c608a0ce96d9d4d4b385db5de",
+  "diagnostics": {
+    "dangling_relations": [],
+    "derived_dotted_parent_links": [],
+    "multiple_parent_nodes": []
+  },
+  "external_relations": [],
+  "hierarchy": {
+    "children": [],
+    "id": "terminalbeta-egl"
+  },
+  "issues": {
+    "terminalbeta-egl": {
+      "selection_state": "selected",
+      "source": {
+        "_type": "issue",
+        "close_reason": "Migrated to respective service repo",
+        "closed_at": "2026-03-17T14:54:56Z",
+        "comment_count": 0,
+        "created_at": "2026-03-17T14:24:59Z",
+        "created_by": "dawid",
+        "dependency_count": 0,
+        "dependent_count": 0,
+        "description": "TGA_Balance is null across all 7 days of get_fed_liquidity history. VIX, HY_OAS, BBB_OAS are also null in get_fed_liquidity_latest.\n\nVerified: get_fiscal_daily_latest returns TGA_Balance=806335 (2026-03-13) — data exists in fiscal tables but is not synced to fed_liquidity_daily.\n\nConsequence: Net_Liquidity is calculated as Fed_Total_Assets - RRP - TGA. With TGA null (treated as 0), Net_Liquidity reads as 6,645,762 — overstated by ~B compared to the true value.\n\nget_fed_liquidity_latest response shows:\n  TGA_Balance|Net_Liquidity\n  (empty)    |6645762.0000\n\nTrue net liquidity should be approximately 6645762 - 806 ≈ 5,839,762 (billions).",
+        "id": "terminalbeta-egl",
+        "issue_type": "bug",
+        "labels": [
+          "bug",
+          "fed-liquidity",
+          "pipeline",
+          "pubfinance"
+        ],
+        "priority": 1,
+        "status": "closed",
+        "title": "TGA_Balance and VIX/credit spreads null in fed_liquidity",
+        "updated_at": "2026-03-17T14:54:56Z"
+      }
+    }
+  },
+  "relations": [],
+  "repository": "mercuryintelligence/terminalbeta",
+  "root_id": "terminalbeta-egl",
+  "root_title": "TGA_Balance and VIX/credit spreads null in fed_liquidity",
+  "schema_version": "xtrm.board-audit.work-package.v1",
+  "scope": "all"
+}

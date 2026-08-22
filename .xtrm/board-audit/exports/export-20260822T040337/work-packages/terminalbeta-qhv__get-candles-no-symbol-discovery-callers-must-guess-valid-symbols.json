@@ -1,0 +1,47 @@
+{
+  "content_sha256": "ffecf07bb12f0ff95c272b6a3967e30355ee16d16913c23ac7c0dd24015696d9",
+  "diagnostics": {
+    "dangling_relations": [],
+    "derived_dotted_parent_links": [],
+    "multiple_parent_nodes": []
+  },
+  "external_relations": [],
+  "hierarchy": {
+    "children": [],
+    "id": "terminalbeta-qhv"
+  },
+  "issues": {
+    "terminalbeta-qhv": {
+      "selection_state": "selected",
+      "source": {
+        "_type": "issue",
+        "close_reason": "Migrated to respective service repo",
+        "closed_at": "2026-03-17T14:54:55Z",
+        "comment_count": 0,
+        "created_at": "2026-03-17T14:26:37Z",
+        "created_by": "dawid",
+        "dependency_count": 0,
+        "dependent_count": 0,
+        "description": "get_candles requires a symbol parameter but provides no discovery mechanism. Callers must already know valid symbols (ES=F, ZN=F, etc.) or infer them from get_market_overview results.\n\nIf a caller passes an invalid symbol, they get an empty result or error with no helpful message listing valid symbols.\n\nRequest: add a get_candles_symbols or reuse get_market_overview symbol list as the canonical source. At minimum, document the complete list of valid symbols for get_candles in the tool description, and clarify whether spread symbols (TUT, EF-M26) are supported.",
+        "id": "terminalbeta-qhv",
+        "issue_type": "feature",
+        "labels": [
+          "candles",
+          "dx",
+          "enhancement",
+          "market-data"
+        ],
+        "priority": 3,
+        "status": "closed",
+        "title": "get_candles no symbol discovery — callers must guess valid symbols",
+        "updated_at": "2026-03-17T14:54:55Z"
+      }
+    }
+  },
+  "relations": [],
+  "repository": "mercuryintelligence/terminalbeta",
+  "root_id": "terminalbeta-qhv",
+  "root_title": "get_candles no symbol discovery — callers must guess valid symbols",
+  "schema_version": "xtrm.board-audit.work-package.v1",
+  "scope": "all"
+}

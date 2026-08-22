@@ -1,0 +1,47 @@
+{
+  "content_sha256": "00e7cd9c20a135ea6759f59f432adcd7d371128835a38758e44cc80032892279",
+  "diagnostics": {
+    "dangling_relations": [],
+    "derived_dotted_parent_links": [],
+    "multiple_parent_nodes": []
+  },
+  "external_relations": [],
+  "hierarchy": {
+    "children": [],
+    "id": "terminalbeta-opw"
+  },
+  "issues": {
+    "terminalbeta-opw": {
+      "selection_state": "selected",
+      "source": {
+        "_type": "issue",
+        "close_reason": "Migrated to respective service repo",
+        "closed_at": "2026-03-17T14:54:56Z",
+        "comment_count": 0,
+        "created_at": "2026-03-17T14:35:47Z",
+        "created_by": "dawid",
+        "dependency_count": 0,
+        "dependent_count": 0,
+        "description": "A large proportion of events in the calendar DB are tagged with country='european union' when they clearly belong to other countries. Observed in this_week unfiltered results:\n\nExamples of mis-tagged events:\n  european union | WPI Inflation (YoY) (Feb)         <- India (INR currency, WPI is India-specific)\n  european union | Chinese Unemployment Rate (Feb)   <- China\n  european union | Fixed Asset Investment (Feb)       <- China\n  european union | Brazilian IPCA Inflation Index     <- Brazil\n  european union | Trade Balance (Feb) [NOK]          <- Norway\n  european union | Budget balance (Feb) [TRY]         <- Turkey\n  european union | RBNZ Offshore Holdings             <- New Zealand\n  european union | RBA Interest Rate Decision (Mar)   <- Australia (RBA = Reserve Bank of Australia)\n  european union | German ZEW Economic Sentiment      <- Germany (correctly EU but should be 'germany')\n  european union | 5-Year Treasury Gilt Auction       <- United Kingdom (also tagged as 'united kingdom' separately — duplicate)\n\nImpact:\n1. Filtering by country='india', 'brazil', 'australia', 'new zealand', 'norway', 'turkey' will return 0 results\n2. Filtering by country='european union' returns an enormous noisy set mixing EU events with global events\n3. Many events appear duplicated (once as 'european union', once with correct country)\n\nRoot cause: likely the ingestion pipeline assigns a default country of 'european union' when the source country cannot be parsed, rather than leaving it null or using an 'unknown' value.",
+        "id": "terminalbeta-opw",
+        "issue_type": "bug",
+        "labels": [
+          "bug",
+          "calendar",
+          "data-quality",
+          "econ-data"
+        ],
+        "priority": 1,
+        "status": "closed",
+        "title": "Mass country mis-tagging — non-EU events incorrectly labelled 'european union'",
+        "updated_at": "2026-03-17T14:54:56Z"
+      }
+    }
+  },
+  "relations": [],
+  "repository": "mercuryintelligence/terminalbeta",
+  "root_id": "terminalbeta-opw",
+  "root_title": "Mass country mis-tagging — non-EU events incorrectly labelled 'european union'",
+  "schema_version": "xtrm.board-audit.work-package.v1",
+  "scope": "all"
+}

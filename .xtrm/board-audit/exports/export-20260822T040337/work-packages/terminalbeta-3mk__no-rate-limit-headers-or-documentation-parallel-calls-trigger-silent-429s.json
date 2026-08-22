@@ -1,0 +1,47 @@
+{
+  "content_sha256": "933c3dfe5e239c514c24badb4a776c7f248edc329d7cebc928a98445ad112d66",
+  "diagnostics": {
+    "dangling_relations": [],
+    "derived_dotted_parent_links": [],
+    "multiple_parent_nodes": []
+  },
+  "external_relations": [],
+  "hierarchy": {
+    "children": [],
+    "id": "terminalbeta-3mk"
+  },
+  "issues": {
+    "terminalbeta-3mk": {
+      "selection_state": "selected",
+      "source": {
+        "_type": "issue",
+        "close_reason": "Migrated to respective service repo",
+        "closed_at": "2026-03-17T14:54:57Z",
+        "comment_count": 0,
+        "created_at": "2026-03-17T14:25:34Z",
+        "created_by": "dawid",
+        "dependency_count": 0,
+        "dependent_count": 0,
+        "description": "All Mercury MCP servers return HTTP 429 when parallel request volume is high, but:\n1. No rate limit is documented anywhere\n2. No Retry-After or X-RateLimit headers are returned with 429 responses\n3. Callers have no way to know they are approaching a limit before being rejected\n\nObserved: sending ~65 parallel calls across all 4 servers triggered 429s on darth-feedor and market-data. The threshold is unknown.\n\nImpact: automated workflows (morning briefs, session scans) that call multiple endpoints in parallel will silently fail with no backoff signal.\n\nFix: add X-RateLimit-Limit, X-RateLimit-Remaining, Retry-After headers to all 429 responses. Document per-server rate limits in tool descriptions.",
+        "id": "terminalbeta-3mk",
+        "issue_type": "bug",
+        "labels": [
+          "all-servers",
+          "bug",
+          "dx",
+          "rate-limiting"
+        ],
+        "priority": 2,
+        "status": "closed",
+        "title": "No rate limit headers or documentation — parallel calls trigger silent 429s",
+        "updated_at": "2026-03-17T14:54:57Z"
+      }
+    }
+  },
+  "relations": [],
+  "repository": "mercuryintelligence/terminalbeta",
+  "root_id": "terminalbeta-3mk",
+  "root_title": "No rate limit headers or documentation — parallel calls trigger silent 429s",
+  "schema_version": "xtrm.board-audit.work-package.v1",
+  "scope": "all"
+}

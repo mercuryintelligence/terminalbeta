@@ -1,0 +1,45 @@
+{
+  "content_sha256": "28f09b632f4fd9b79c774b84b3bc5d02e53a7d20abde1d2a5fa7578780115104",
+  "diagnostics": {
+    "dangling_relations": [],
+    "derived_dotted_parent_links": [],
+    "multiple_parent_nodes": []
+  },
+  "external_relations": [],
+  "hierarchy": {
+    "children": [],
+    "id": "terminalbeta-0e2"
+  },
+  "issues": {
+    "terminalbeta-0e2": {
+      "selection_state": "selected",
+      "source": {
+        "_type": "issue",
+        "assignee": "jaggerxtrm",
+        "close_reason": "Tuned git-cliff: added per-commit date-time (commit.author.timestamp) to changelog body template; commit bodies already rendered. Regenerated CHANGELOG [Unreleased] non-destructively (header preserved, additions only). No scope parsers added — fallthrough entries are merge/unconventional historical commits, not a scope taxonomy. Committed bc6cd42.",
+        "closed_at": "2026-07-15T09:22:36Z",
+        "comment_count": 0,
+        "created_at": "2026-07-14T00:57:17Z",
+        "created_by": "jaggerxtrm",
+        "dependency_count": 0,
+        "dependent_count": 0,
+        "description": "git-cliff was rolled out across all ~/dev and ~/projects repos in one batch (362f104). This bead is the ack + tuning gate for THIS repo.\n\n## WHAT LANDED\n- changelog/cliff.toml — GENERIC type-based parsers only (feat->Added, fix->Fixed,\n  perf->Performance, docs|chore|build|ci|test|refactor|style->Project maintenance,\n  everything else->Other changes). Version-bump commits are skipped.\n- header = \"\" on purpose, so the CHANGELOG keeps its own title and --prepend never\n  stacks a second header on top of it.\n- Commit links point at this repo's own origin remote.\n- CHANGELOG.md: generated fresh if absent; otherwise --prepend --unreleased only.\n  Verified non-destructive — 0 existing lines lost in every repo that had one.\n\n## WHY THIS BEAD IS P0\nThe config is deliberately generic and is NOT tuned to this repo. Until someone acks it:\n- Real work may be landing under 'Other changes' instead of a meaningful section.\n- Scope names used by this repo's commits have no parser entry.\n\n## TO DO\n1. Run: git-cliff --config changelog/cliff.toml --unreleased  (inspect, do not write)\n2. Count entries falling into 'Other changes'. If more than a couple, add scope parsers\n   ABOVE the generic ones, e.g. { message = \"^feat\\\\(api\\\\)\", group = \"API\" }.\n3. Document the scope taxonomy in CLAUDE.md / AGENTS.md so the agents that write the\n   commits actually follow it — the taxonomy is useless if only the parser knows it.\n4. If this repo had a hand-written CHANGELOG, reconcile the generated format against\n   the existing style (they will not match).\n5. Regenerate with --prepend --unreleased. NEVER use -o / plain generate on a repo with\n   a hand-written CHANGELOG — it rebuilds from the git log and drops every hand-written\n   line (measured: 362 lines would be lost in specialists).\n\n## DO NOT\n- Do not run git-cliff without --prepend on a repo that already has a CHANGELOG.\n- Nothing was pushed. Review the commit before pushing.",
+        "id": "terminalbeta-0e2",
+        "issue_type": "task",
+        "notes": "RESWEEPED — config now renders commit BODIES, not just subjects.\n\nThe first sweep only templated {{ commit.message }}, throwing away the rich bodies the\nagents already write. cliff.toml now renders {% if commit.body %}, so a changelog entry\ncarries the full rationale, bead id, PR number, and file/env details straight from git.\nVerified on market-data: generated entries now match the hand-written ones in substance.\n\nAll changelogs were restored to their exact pre-sweep state and re-prepended.\nMeasured: 0 pre-existing lines lost in every repo that already had a CHANGELOG.\n\n## REMAINING TUNING (this bead)\n1. SCOPES — parsers are still generic (type-based only). Run:\n     git-cliff --config changelog/cliff.toml --unreleased\n   Count entries under 'Other changes'. Add repo-specific scope parsers ABOVE the\n   generic ones, e.g. { message = \"^feat\\\\(api\\\\)\", group = \"API\" }.\n2. COMMIT BODIES ARE NOW THE CHANGELOG. Document that in CLAUDE.md / AGENTS.md: the\n   body is what readers see, so agents should write it for a reader, not a reviewer.\n   Squash-merge commits currently dump the raw PR bullet list verbatim — verbose.\n3. FORMAT — repos with a hand-written CHANGELOG have two styles stacked. Reconcile.\n\n## HARD RULE\nNEVER run git-cliff without --prepend on a repo that has a hand-written CHANGELOG.\nIt rebuilds from the git log and drops every hand-written line (measured: 362 lines\nwould be lost in specialists). Always: --unreleased --prepend.\n\nNothing was pushed. Review before pushing.",
+        "owner": "jagger.xtrm@gmail.com",
+        "priority": 0,
+        "started_at": "2026-07-15T09:19:22Z",
+        "status": "closed",
+        "title": "Ack git-cliff rollout: tune scopes + reconcile CHANGELOG",
+        "updated_at": "2026-07-15T09:22:36Z"
+      }
+    }
+  },
+  "relations": [],
+  "repository": "mercuryintelligence/terminalbeta",
+  "root_id": "terminalbeta-0e2",
+  "root_title": "Ack git-cliff rollout: tune scopes + reconcile CHANGELOG",
+  "schema_version": "xtrm.board-audit.work-package.v1",
+  "scope": "all"
+}
