@@ -1,0 +1,46 @@
+{
+  "content_sha256": "f87f5dbb240e944b5d2f1e7454841d8be0fdf72462ab1dff4f1e1fded563d72b",
+  "diagnostics": {
+    "dangling_relations": [],
+    "derived_dotted_parent_links": [],
+    "multiple_parent_nodes": []
+  },
+  "external_relations": [],
+  "hierarchy": {
+    "children": [],
+    "id": "terminalbeta-r2p"
+  },
+  "issues": {
+    "terminalbeta-r2p": {
+      "selection_state": "selected",
+      "source": {
+        "_type": "issue",
+        "close_reason": "Migrated to respective service repo",
+        "closed_at": "2026-03-17T14:54:56Z",
+        "comment_count": 0,
+        "created_at": "2026-03-17T14:26:35Z",
+        "created_by": "dawid",
+        "dependency_count": 0,
+        "dependent_count": 0,
+        "description": "list_economic_history_catalog returns 59 series metadata (CPI, NFP, GDP, PCE, ECI, PPI, JOLTS, etc.) with indicator_name, calc_type, source, category, first_date, last_date, data_points. But there is no get_economic_history tool to retrieve the actual data.\n\nThe catalog is discoverable but the data is inaccessible via MCP.\n\nExample series available but not retrievable:\n  CPI (YoY, NSA)|yoy|BLS|inflation|2007-01-01|2026-02-01|229\n  Nonfarm Payrolls (SA)|level|BLS|employment|2007-01-01|2026-02-01|230\n  Core CPI (YoY, NSA)|yoy|BLS|inflation|2007-01-01|2026-02-01|229\n\nRequest: add get_economic_history(indicator_name, start_date, end_date) or get_economic_history(series_id) tool. This would enable historical charting, surprise analysis (actual vs forecast over time), and trend context.",
+        "id": "terminalbeta-r2p",
+        "issue_type": "feature",
+        "labels": [
+          "econ-data",
+          "enhancement",
+          "missing-tool"
+        ],
+        "priority": 2,
+        "status": "closed",
+        "title": "get_economic_history tool missing — 59 series in catalog with no retrieval endpoint",
+        "updated_at": "2026-03-17T14:54:56Z"
+      }
+    }
+  },
+  "relations": [],
+  "repository": "mercuryintelligence/terminalbeta",
+  "root_id": "terminalbeta-r2p",
+  "root_title": "get_economic_history tool missing — 59 series in catalog with no retrieval endpoint",
+  "schema_version": "xtrm.board-audit.work-package.v1",
+  "scope": "all"
+}

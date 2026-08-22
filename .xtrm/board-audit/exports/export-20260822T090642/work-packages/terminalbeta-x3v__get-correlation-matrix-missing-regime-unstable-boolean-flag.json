@@ -1,0 +1,47 @@
+{
+  "content_sha256": "87f0347769268c0721a2fd0a0dbe6f8808029d75c6e0f2306de548d9c592e939",
+  "diagnostics": {
+    "dangling_relations": [],
+    "derived_dotted_parent_links": [],
+    "multiple_parent_nodes": []
+  },
+  "external_relations": [],
+  "hierarchy": {
+    "children": [],
+    "id": "terminalbeta-x3v"
+  },
+  "issues": {
+    "terminalbeta-x3v": {
+      "selection_state": "selected",
+      "source": {
+        "_type": "issue",
+        "close_reason": "Migrated to respective service repo",
+        "closed_at": "2026-03-17T14:54:56Z",
+        "comment_count": 0,
+        "created_at": "2026-03-17T14:26:36Z",
+        "created_by": "dawid",
+        "dependency_count": 0,
+        "dependent_count": 0,
+        "description": "get_correlation_matrix returns switch_risk_pct (0-100%) indicating regime transition probability. The threshold for instability is documented as >30% = unstable. But callers must implement this threshold themselves.\n\nObserved: CL/ES has switch_risk_pct=96.1 — extremely unstable correlation regime. This is an important signal that could be missed.\n\nRequest: add a computed boolean field regime_unstable (switch_risk_pct > 30) alongside switch_risk_pct. This mirrors the pattern used in get_volatility_metrics where thresholds are pre-computed (vol_switch_risk >30% = unstable).",
+        "id": "terminalbeta-x3v",
+        "issue_type": "feature",
+        "labels": [
+          "correlation",
+          "dx",
+          "enhancement",
+          "market-data"
+        ],
+        "priority": 3,
+        "status": "closed",
+        "title": "get_correlation_matrix missing regime_unstable boolean flag",
+        "updated_at": "2026-03-17T14:54:56Z"
+      }
+    }
+  },
+  "relations": [],
+  "repository": "mercuryintelligence/terminalbeta",
+  "root_id": "terminalbeta-x3v",
+  "root_title": "get_correlation_matrix missing regime_unstable boolean flag",
+  "schema_version": "xtrm.board-audit.work-package.v1",
+  "scope": "all"
+}

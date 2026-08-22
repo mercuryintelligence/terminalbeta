@@ -1,0 +1,47 @@
+{
+  "content_sha256": "ab420be0a2ec1fec7ddb9492335576f46d39a63b32616f0c95625a16e4314ebb",
+  "diagnostics": {
+    "dangling_relations": [],
+    "derived_dotted_parent_links": [],
+    "multiple_parent_nodes": []
+  },
+  "external_relations": [],
+  "hierarchy": {
+    "children": [],
+    "id": "terminalbeta-p7c"
+  },
+  "issues": {
+    "terminalbeta-p7c": {
+      "selection_state": "selected",
+      "source": {
+        "_type": "issue",
+        "close_reason": "Migrated to respective service repo",
+        "closed_at": "2026-03-17T14:54:55Z",
+        "comment_count": 0,
+        "created_at": "2026-03-17T14:24:58Z",
+        "created_by": "dawid",
+        "dependency_count": 0,
+        "dependent_count": 0,
+        "description": "ret_5d_pct is consistently null in the instruments section across all four bundle endpoints. Only ret_1d_pct is populated.\n\nAffected: get_equities_bundle, get_fx_bundle, get_commodities_bundle, get_treasuries_bundle, get_stir_bundle.\n\nExample:\n  get_equities_bundle()\n  instruments[4]{symbol|last_price|session_state|ret_1d_pct|ret_5d_pct|vol_regime}:\n    ES=F|6803.25|ETH|0.0076||Spike-Rising  <- ret_5d_pct empty\n\nThe field IS populated in:\n- get_market_overview: ES=F|6803.25|RTH|0.0076|0.0009|...\n- get_symbol_detail: returns_profile.ret_5d=0.0009\n\nThe data exists — the bundle assembler is not mapping it.",
+        "id": "terminalbeta-p7c",
+        "issue_type": "bug",
+        "labels": [
+          "bug",
+          "bundles",
+          "market-data"
+        ],
+        "notes": "Enhancement request (2026-03-17): while fixing ret_5d_pct, also add an optional 'days' parameter to all bundle and overview endpoints so callers can choose the lookback for both return and range-position fields:\n\n- ret_Nd_pct: e.g. days=20 returns ret_20d_pct instead of (or alongside) ret_5d_pct\n- pos_Nd: e.g. days=20 returns pos_20d instead of the fixed pos_1d/pos_5d/pos_20d trio\n\nThis avoids hardcoding the 1d/5d/20d trio and lets callers tailor the lookback to their timeframe (e.g. days=60 for positional context over the quarter). Affects: get_equities_bundle, get_fx_bundle, get_commodities_bundle, get_treasuries_bundle, get_stir_bundle, get_market_overview.",
+        "priority": 1,
+        "status": "closed",
+        "title": "ret_5d_pct empty in all bundle instrument responses",
+        "updated_at": "2026-03-17T14:54:55Z"
+      }
+    }
+  },
+  "relations": [],
+  "repository": "mercuryintelligence/terminalbeta",
+  "root_id": "terminalbeta-p7c",
+  "root_title": "ret_5d_pct empty in all bundle instrument responses",
+  "schema_version": "xtrm.board-audit.work-package.v1",
+  "scope": "all"
+}

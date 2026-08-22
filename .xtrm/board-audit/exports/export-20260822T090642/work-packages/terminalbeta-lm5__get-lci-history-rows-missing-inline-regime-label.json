@@ -1,0 +1,47 @@
+{
+  "content_sha256": "180340ddab0545f50080ad1b2bf5f06ca9dc9d75690f640c69730b9477702297",
+  "diagnostics": {
+    "dangling_relations": [],
+    "derived_dotted_parent_links": [],
+    "multiple_parent_nodes": []
+  },
+  "external_relations": [],
+  "hierarchy": {
+    "children": [],
+    "id": "terminalbeta-lm5"
+  },
+  "issues": {
+    "terminalbeta-lm5": {
+      "selection_state": "selected",
+      "source": {
+        "_type": "issue",
+        "close_reason": "Migrated to respective service repo",
+        "closed_at": "2026-03-17T14:54:56Z",
+        "comment_count": 0,
+        "created_at": "2026-03-17T14:26:37Z",
+        "created_by": "dawid",
+        "dependency_count": 0,
+        "dependent_count": 0,
+        "description": "get_lci(days=N) returns raw LCI values but LCI_Regime is not reliably present in history rows. Callers must apply the threshold mapping manually or call get_lci_summary separately for the interpretation.\n\nThreshold mapping:\n  LCI > +1.5  → Very Loose\n  LCI +0.5 to +1.5 → Loose\n  LCI -0.5 to +0.5 → Neutral\n  LCI -1.5 to -0.5 → Tight\n  LCI < -1.5 → Very Tight\n\nObserved in get_lci(days=7):\n  2026-03-16|0.4489|...|Neutral  <- LCI_Regime present (sometimes)\n  2026-03-15|0.5094|...|Easy     <- 'Easy' is not in the documented regime scale\n\nThe LCI_Regime field is inconsistent — 'Easy' appears where 'Loose' is expected per docs. Either the thresholds changed and docs are stale, or the field is being populated differently in history vs summary.\n\nRequest: ensure LCI_Regime is computed consistently as a CASE expression in the query and matches the documented scale.",
+        "id": "terminalbeta-lm5",
+        "issue_type": "feature",
+        "labels": [
+          "dx",
+          "enhancement",
+          "lci",
+          "pubfinance"
+        ],
+        "priority": 3,
+        "status": "closed",
+        "title": "get_lci history rows missing inline regime label",
+        "updated_at": "2026-03-17T14:54:56Z"
+      }
+    }
+  },
+  "relations": [],
+  "repository": "mercuryintelligence/terminalbeta",
+  "root_id": "terminalbeta-lm5",
+  "root_title": "get_lci history rows missing inline regime label",
+  "schema_version": "xtrm.board-audit.work-package.v1",
+  "scope": "all"
+}

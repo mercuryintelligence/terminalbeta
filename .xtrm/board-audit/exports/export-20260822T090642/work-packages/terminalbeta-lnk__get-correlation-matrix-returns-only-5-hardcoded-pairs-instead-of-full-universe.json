@@ -1,0 +1,46 @@
+{
+  "content_sha256": "0d3573fe31c2f47890b34762f7352206e5674148ae646c0a4d125ddb10df1835",
+  "diagnostics": {
+    "dangling_relations": [],
+    "derived_dotted_parent_links": [],
+    "multiple_parent_nodes": []
+  },
+  "external_relations": [],
+  "hierarchy": {
+    "children": [],
+    "id": "terminalbeta-lnk"
+  },
+  "issues": {
+    "terminalbeta-lnk": {
+      "selection_state": "selected",
+      "source": {
+        "_type": "issue",
+        "close_reason": "Migrated to respective service repo",
+        "closed_at": "2026-03-17T14:54:55Z",
+        "comment_count": 0,
+        "created_at": "2026-03-17T14:25:00Z",
+        "created_by": "dawid",
+        "dependency_count": 0,
+        "dependent_count": 0,
+        "description": "get_correlation_matrix returns 5 pairs only:\n  CL=F|ES=F, ES=F|NQ=F, ZN=F|6J=F, ZN=F|ES=F, ZN=F|GC=F\n\nTool description says 'Multi-timeframe correlation between all tracked instruments' (19 instruments = 171 possible pairs).\n\nThese 5 appear to be statically defined, not dynamically computed. Missing important relationships: ES/GC (risk-off hedge), ES/RTY (breadth), 6B or 6S pairs, ZB/ZN (duration), ZN/ZF (curve), commodity crosses.\n\nThe switch_risk_pct=96.1 on CL/ES is a significant signal (extreme instability) — but this flag is invisible for the 166 other pairs not returned.\n\nRequest: either return all pairs or add symbol filtering parameter (e.g. symbols=['ES=F','ZN=F']) so callers can query specific relationships.",
+        "id": "terminalbeta-lnk",
+        "issue_type": "bug",
+        "labels": [
+          "bug",
+          "correlation",
+          "market-data"
+        ],
+        "priority": 1,
+        "status": "closed",
+        "title": "get_correlation_matrix returns only 5 hardcoded pairs instead of full universe",
+        "updated_at": "2026-03-17T14:54:55Z"
+      }
+    }
+  },
+  "relations": [],
+  "repository": "mercuryintelligence/terminalbeta",
+  "root_id": "terminalbeta-lnk",
+  "root_title": "get_correlation_matrix returns only 5 hardcoded pairs instead of full universe",
+  "schema_version": "xtrm.board-audit.work-package.v1",
+  "scope": "all"
+}

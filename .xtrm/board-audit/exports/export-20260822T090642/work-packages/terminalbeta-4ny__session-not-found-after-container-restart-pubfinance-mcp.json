@@ -1,0 +1,46 @@
+{
+  "content_sha256": "35b30c05715822f0662088e9d86c6accd29f49a9496888de29362041cc39f60a",
+  "diagnostics": {
+    "dangling_relations": [],
+    "derived_dotted_parent_links": [],
+    "multiple_parent_nodes": []
+  },
+  "external_relations": [],
+  "hierarchy": {
+    "children": [],
+    "id": "terminalbeta-4ny"
+  },
+  "issues": {
+    "terminalbeta-4ny": {
+      "selection_state": "selected",
+      "source": {
+        "_type": "issue",
+        "close_reason": "Migrated to respective service repo",
+        "closed_at": "2026-03-17T14:54:56Z",
+        "comment_count": 0,
+        "created_at": "2026-03-17T14:24:57Z",
+        "created_by": "dawid",
+        "dependency_count": 0,
+        "dependent_count": 0,
+        "description": "Same as market-data session issue. Restarting pubfinance-mcp container invalidates all active MCP sessions. Clients get 'Session not found' on all 19 pubfinance tools until they restart their client.\n\nReproduced on 2026-03-16 when pubfinance-mcp was restarted to deploy the get_data_freshness fix. Full session loss confirmed — required Claude Code restart to recover.\n\nFix: same options as market-data session issue — stateless auth preferred for zero-downtime deployments.",
+        "id": "terminalbeta-4ny",
+        "issue_type": "bug",
+        "labels": [
+          "bug",
+          "mcp",
+          "pubfinance"
+        ],
+        "priority": 0,
+        "status": "closed",
+        "title": "Session not found after container restart — pubfinance MCP",
+        "updated_at": "2026-03-17T14:54:56Z"
+      }
+    }
+  },
+  "relations": [],
+  "repository": "mercuryintelligence/terminalbeta",
+  "root_id": "terminalbeta-4ny",
+  "root_title": "Session not found after container restart — pubfinance MCP",
+  "schema_version": "xtrm.board-audit.work-package.v1",
+  "scope": "all"
+}
